@@ -1,0 +1,11 @@
+on:
+  pull_request:
+    branches:
+      - main
+name: Validation Tests
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run Tests
+        run: docker-compose -f docker-compose-tests.yml run node_app npm run test:merge
